@@ -76,7 +76,7 @@ const Hero: React.FC = () => {
               </Button>
             </Link>
             <Link href="/waitlist">
-              <Button variant="outline" size="lg">
+              <Button variant="primary" size="lg" className="shadow-2xl shadow-primary/20">
                 Join the Waitlist
               </Button>
             </Link>
