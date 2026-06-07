@@ -30,11 +30,12 @@ const Footer: React.FC = () => {
               <a
                 href="https://wa.me/917990680690"
                 className="flex items-center gap-4 text-text-secondary hover:text-primary transition-colors duration-500 group"
+                aria-label="Contact on WhatsApp"
               >
                 <div className="p-2 rounded-full bg-primary/5 group-hover:bg-primary/10 transition-colors">
                   <MessageCircle size={20} />
                 </div>
-                <span className="font-medium">+91 7990680690 (WhatsApp)</span>
+                <span className="font-medium">WhatsApp Us</span>
               </a>
               <div className="flex items-center gap-4 text-text-secondary cursor-default">
                 <div className="p-2 rounded-full bg-primary/5">
@@ -62,6 +63,11 @@ const Footer: React.FC = () => {
               <li>
                 <Link href="/waitlist" className="text-text-secondary hover:text-primary transition-all duration-500 hover:translate-x-1 inline-block">
                   Join Waitlist
+                </Link>
+              </li>
+              <li>
+                <Link href="/faq" className="text-text-secondary hover:text-primary transition-all duration-500 hover:translate-x-1 inline-block">
+                  FAQ
                 </Link>
               </li>
             </ul>

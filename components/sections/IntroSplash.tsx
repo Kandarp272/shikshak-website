@@ -127,7 +127,7 @@ const IntroSplash: React.FC = () => {
                       transition={{ duration: 0.8, ease: ENTER_EASE, delay: 0.5 }}
                       style={{ transformOrigin: "left" }}
                     />
-                    A project by
+                    A project by <span className="font-bold text-primary">Kandarp</span>
                     <motion.span
                       className="inline-block w-8 h-[1px] bg-text-muted/40"
                       initial={{ scaleX: 0 }}

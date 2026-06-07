@@ -53,10 +53,9 @@ const FeaturesGrid: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-5xl md:text-6xl font-serif font-bold mb-8 leading-tight text-text-primary"
+            className="text-5xl md:text-6xl font-serif font-bold mb-8 leading-tight text-text-primary max-w-4xl mx-auto"
           >
-            Features built for the <br />
-            <span className="italic text-primary">heart of Bharat</span>
+            Features built for the <span className="italic text-primary">heart of Bharat</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -93,6 +92,18 @@ const FeaturesGrid: React.FC = () => {
             </motion.div>
           ))}
         </div>
+
+        <motion.p 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="text-sm text-text-muted text-center mt-16 font-sans"
+        >
+          Questions about privacy or biometric data?{" "}
+          <Link href="/faq" className="underline underline-offset-4 text-primary font-bold hover:text-primary/80 transition-colors">
+            Read our FAQ →
+          </Link>
+        </motion.p>
       </div>
     </section>
   );

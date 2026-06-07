@@ -50,10 +50,9 @@ const Hero: React.FC = () => {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="text-6xl md:text-8xl lg:text-[100px] font-serif font-bold text-text-primary leading-[1.05] mb-10 tracking-tight"
+            className="text-6xl md:text-8xl lg:text-[100px] font-serif font-bold text-text-primary leading-[1.05] mb-10 tracking-tight max-w-5xl mx-auto"
           >
-            India's AI Classroom, <br />
-            <span className="italic text-primary">Built for Bharat</span>
+            India's AI Classroom, <span className="italic text-primary">Built for Bharat</span>
           </motion.h1>
 
           <motion.p
@@ -71,14 +70,14 @@ const Hero: React.FC = () => {
             transition={{ duration: 1, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
             className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-20"
           >
-            <Link href="/waitlist">
+            <Link href="/contact">
               <Button variant="primary" size="lg" className="shadow-2xl shadow-primary/20">
-                Join the Waitlist
+                Book a Free Demo
               </Button>
             </Link>
-            <Link href="/contact">
+            <Link href="/waitlist">
               <Button variant="outline" size="lg">
-                Book a Demo
+                Join the Waitlist
               </Button>
             </Link>
           </motion.div>

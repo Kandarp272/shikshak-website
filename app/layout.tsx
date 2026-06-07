@@ -32,7 +32,10 @@ export const metadata: Metadata = {
   openGraph: {
     images: [{ url: "/og.png", width: 1200, height: 630 }],
   },
-  metadataBase: new URL("https://shikshaksahayak.in"),
+  twitter: {
+    images: ["/og.png"],
+  },
+  metadataBase: new URL("https://shikshak-website.vercel.app"),
 };
 
 export default function RootLayout({

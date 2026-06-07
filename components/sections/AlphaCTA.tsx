@@ -1,11 +1,28 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import Button from "@/components/ui/Button";
+import { supabase } from "@/lib/supabase";
 
 const AlphaCTA: React.FC = () => {
+  const [claimedCount, setClaimedCount] = useState<number>(10);
+
+  useEffect(() => {
+    const fetchCount = async () => {
+      if (!supabase) return;
+      const { count } = await supabase
+        .from("waitlist")
+        .select("*", { count: "exact", head: true });
+      
+      if (count !== null) {
+        setClaimedCount(Math.max(count, 10));
+      }
+    };
+    fetchCount();
+  }, []);
+
   return (
     <section className="py-32 relative overflow-hidden bg-background">
       <div className="container mx-auto px-6">
@@ -27,8 +44,9 @@ const AlphaCTA: React.FC = () => {
                 Seeking <span className="italic opacity-80">50 pilot schools</span> across Bharat
               </h2>
               <p className="text-xl md:text-2xl text-[#F9F6F0]/80 leading-relaxed font-sans max-w-3xl mx-auto">
-                Free access during our Alpha phase. Your feedback will shape the future of Indian education. Priority for schools in Gujarat.
+                Free access during our Alpha phase. Your feedback will shape the future of Indian education.
               </p>
+              
               <div className="flex flex-col items-center gap-6 pt-6">
                 <Link href="/waitlist" className="w-full sm:w-auto">
                   <Button variant="secondary" size="lg" className="w-full sm:w-auto px-16 bg-[#F9F6F0] text-primary hover:bg-[#F9F6F0]/90 shadow-2xl">
@@ -36,8 +54,8 @@ const AlphaCTA: React.FC = () => {
                   </Button>
                 </Link>
                 <div className="flex flex-col items-center gap-2">
-                  <p className="text-sm text-[#F9F6F0]/60 font-medium">
-                    Alpha build — We're iterating weekly with your feedback.
+                  <p className="text-[#F9F6F0] font-medium">
+                    <span className="font-bold opacity-100">{claimedCount} of 50 spots</span> <span className="opacity-60">claimed · Priority for Gujarat schools</span>
                   </p>
                   <div className="w-12 h-1 bg-[#F9F6F0]/20 rounded-full" />
                 </div>

@@ -2,18 +2,18 @@ import React from "react";
 import type { Metadata } from "next";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import TermsContent from "./TermsContent";
+import FAQContent from "./FAQContent";
 
 export const metadata: Metadata = {
-  title: "Terms of Service — Shikshak Sahayak",
-  description: "Terms governing use of the Shikshak Sahayak platform by schools, teachers, and administrators.",
+  title: "FAQ — Shikshak Sahayak",
+  description: "Answers to common questions about data privacy, biometric consent, pricing, and how Shikshak Sahayak works in Indian schools.",
 };
 
-export default function TermsPage() {
+export default function FAQPage() {
   return (
     <main className="min-h-screen">
       <Navbar />
-      <TermsContent />
+      <FAQContent />
       <Footer />
     </main>
   );

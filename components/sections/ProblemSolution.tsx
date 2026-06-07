@@ -36,10 +36,9 @@ const ProblemSolution: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-5xl md:text-6xl font-serif font-bold mb-8 leading-tight"
+            className="text-5xl md:text-6xl font-serif font-bold mb-8 leading-tight max-w-4xl mx-auto"
           >
-            Indian classrooms deserve <br />
-            <span className="italic text-primary">better tools</span>
+            Indian classrooms deserve <span className="italic text-primary">better tools</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}

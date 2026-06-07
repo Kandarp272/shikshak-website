@@ -36,10 +36,9 @@ const HowItWorks: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-5xl md:text-6xl font-serif font-bold mb-8 leading-tight text-text-primary"
+            className="text-5xl md:text-6xl font-serif font-bold mb-8 leading-tight text-text-primary max-w-4xl mx-auto"
           >
-            From day one to <br />
-            <span className="italic text-primary">smarter classrooms</span>
+            From day one to <span className="italic text-primary">smarter classrooms</span>
           </motion.h2>
         </div>
 

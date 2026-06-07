@@ -61,10 +61,9 @@ const EcosystemGrid: React.FC = () => {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="text-5xl md:text-7xl font-serif font-bold mb-8 leading-tight text-text-primary"
+              className="text-5xl md:text-7xl font-serif font-bold mb-8 leading-tight text-text-primary max-w-2xl"
             >
-              One ecosystem. <br />
-              <span className="italic text-primary">Five connected apps.</span>
+              One ecosystem. <span className="italic text-primary">Five connected apps.</span>
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, x: -20 }}
