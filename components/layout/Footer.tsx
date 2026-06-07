@@ -4,7 +4,7 @@ import { Mail, MessageCircle, MapPin } from "lucide-react";
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-surface/30 backdrop-blur-xl border-t border-glass-border pt-32 pb-16">
+    <footer className="bg-surface border-t border-glass-border pt-32 pb-16">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-16 mb-24">
           {/* Logo & Info */}
