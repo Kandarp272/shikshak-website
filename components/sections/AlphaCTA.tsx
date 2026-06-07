@@ -24,7 +24,7 @@ const AlphaCTA: React.FC = () => {
   }, []);
 
   return (
-    <section className="py-32 relative overflow-hidden bg-surface">
+    <section className="py-32 relative overflow-hidden bg-background">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, scale: 0.98 }}

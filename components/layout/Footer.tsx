@@ -4,8 +4,12 @@ import { Mail, MessageCircle, MapPin } from "lucide-react";
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-surface border-t border-glass-border pt-32 pb-16">
-      <div className="container mx-auto px-6">
+    <footer className="bg-white/40 backdrop-blur-3xl border-t border-glass-border pt-32 pb-16 relative overflow-hidden">
+      {/* Background decoration to make glassmorphism pop at the end */}
+      <div className="absolute top-0 left-1/4 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-[300px] h-[300px] bg-secondary/5 rounded-full blur-[100px] pointer-events-none" />
+      
+      <div className="container mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-16 mb-24">
           {/* Logo & Info */}
           <div className="md:col-span-2">
