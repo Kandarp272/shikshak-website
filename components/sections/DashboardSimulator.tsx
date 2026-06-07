@@ -389,9 +389,9 @@ const DashboardSimulator: React.FC = () => {
                           initial={{ opacity: 0, x: -5 }}
                           animate={{ opacity: 1, x: 0 }}
                           className={
-                            line.startsWith("🌿") || line.startsWith("🍎") || line.startsWith("🪐")
+                            line?.startsWith("🌿") || line?.startsWith("🍎") || line?.startsWith("🪐")
                               ? "text-yellow-200 text-base font-bold font-serif mb-4"
-                              : line.startsWith("✨") || line.startsWith("💡") || line.startsWith("🎯")
+                              : line?.startsWith("✨") || line?.startsWith("💡") || line?.startsWith("🎯")
                               ? "text-orange-300 font-bold italic mt-4"
                               : "text-text-primary"
                           }
