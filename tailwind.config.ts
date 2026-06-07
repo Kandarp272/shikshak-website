@@ -11,8 +11,14 @@ const config: Config = {
       colors: {
         background: "var(--bg-base)",
         surface: "var(--bg-surface)",
-        primary: "var(--primary)",
-        secondary: "var(--secondary)",
+        primary: {
+          DEFAULT: "var(--primary)",
+          foreground: "var(--primary-foreground)",
+        },
+        secondary: {
+          DEFAULT: "var(--secondary)",
+          foreground: "var(--secondary-foreground)",
+        },
         accent: "var(--accent)",
         success: "var(--success)",
         "text-primary": "var(--text-primary)",
@@ -22,8 +28,8 @@ const config: Config = {
         "glass-border": "var(--glass-border)",
       },
       fontFamily: {
-        sans: ["var(--font-dm-sans)", "sans-serif"],
-        syne: ["var(--font-syne)", "sans-serif"],
+        sans: ["var(--font-inter)", "sans-serif"],
+        serif: ["var(--font-fraunces)", "serif"],
         mono: ["var(--font-jetbrains-mono)", "monospace"],
       },
       backgroundImage: {

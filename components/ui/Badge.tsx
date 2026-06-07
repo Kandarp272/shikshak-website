@@ -9,16 +9,16 @@ interface BadgeProps {
 
 const Badge: React.FC<BadgeProps> = ({ children, variant = "alpha", className }) => {
   const variants = {
-    alpha: "bg-amber-500/10 text-amber-500 border-amber-500/20",
-    beta: "bg-secondary/10 text-secondary border-secondary/20",
-    "coming-soon": "bg-text-muted/10 text-text-muted border-text-muted/20",
-    success: "bg-success/10 text-success border-success/20",
+    alpha: "bg-primary/5 text-primary border-primary/10",
+    beta: "bg-secondary/5 text-secondary border-secondary/10",
+    "coming-soon": "bg-text-muted/5 text-text-muted border-text-muted/10",
+    success: "bg-success/5 text-success border-success/10",
   };
 
   return (
     <span
       className={cn(
-        "inline-flex items-center px-3 py-1 rounded-full text-xs font-bold border",
+        "inline-flex items-center px-4 py-1.5 rounded-full text-[10px] tracking-wider uppercase font-bold border",
         variants[variant],
         className
       )}

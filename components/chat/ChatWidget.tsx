@@ -124,16 +124,16 @@ const ChatWidget: React.FC = () => {
     <>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-primary text-white shadow-xl flex items-center justify-center transition-all duration-300 hover:bg-primary/90 hover:shadow-[0_0_30px_rgba(99,102,241,0.5)] active:scale-95"
+        className="fixed bottom-8 right-8 z-50 w-16 h-16 rounded-full bg-primary text-[#F9F6F0] shadow-2xl flex items-center justify-center transition-all duration-500 hover:scale-110 active:scale-95"
       >
         <AnimatePresence mode="wait">
           {isOpen ? (
             <motion.div key="close" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }}>
-              <X size={22} />
+              <X size={24} />
             </motion.div>
           ) : (
             <motion.div key="chat" initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0, opacity: 0 }}>
-              <MessageCircle size={24} />
+              <MessageCircle size={28} />
             </motion.div>
           )}
         </AnimatePresence>
@@ -145,32 +145,32 @@ const ChatWidget: React.FC = () => {
             initial={{ opacity: 0, y: 20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
-            className="fixed bottom-24 right-6 z-50 w-[380px] max-w-[calc(100vw-48px)] h-[560px] max-h-[calc(100vh-120px)] flex flex-col glass-card overflow-hidden shadow-2xl bg-[#0D1117]/95 backdrop-blur-xl"
+            className="fixed bottom-28 right-8 z-50 w-[400px] max-w-[calc(100vw-64px)] h-[600px] max-h-[calc(100vh-140px)] flex flex-col rounded-[40px] overflow-hidden shadow-2xl bg-surface border border-glass-border backdrop-blur-xl"
           >
-            <div className="flex items-center gap-3 px-5 py-4 border-b border-glass-border">
-              <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
-                <Bot size={20} className="text-primary" />
+            <div className="flex items-center gap-4 px-6 py-5 border-b border-glass-border bg-white/50">
+              <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center">
+                <Bot size={24} className="text-primary" />
               </div>
               <div className="flex-1 min-w-0">
-                <h3 className="text-sm font-syne font-bold text-text-primary">Shikshak Sahayak AI</h3>
-                <p className="text-[11px] text-text-muted flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-success inline-block animate-pulse" />
-                  Online
+                <h3 className="text-lg font-serif font-bold text-text-primary">Sahayak AI</h3>
+                <p className="text-[12px] text-text-muted flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-success inline-block animate-pulse" />
+                  Always helpful
                 </p>
               </div>
-              <button onClick={() => setIsOpen(false)} className="p-1.5 rounded-lg text-text-muted hover:bg-white/10">
-                <ChevronDown size={18} />
+              <button onClick={() => setIsOpen(false)} className="p-2 rounded-xl text-text-muted hover:bg-primary/5 transition-colors">
+                <ChevronDown size={22} />
               </button>
             </div>
 
-            <div className="flex-1 overflow-y-auto p-4 space-y-4">
+            <div className="flex-1 overflow-y-auto p-6 space-y-6 bg-white/30">
               {messages.map((msg, index) => (
-                <div key={index} className={`flex items-start gap-3 ${msg.role === "user" ? "flex-row-reverse" : ""}`}>
-                  <div className={`w-8 h-8 rounded-full flex items-center justify-center ${msg.role === "user" ? "bg-primary/20" : "bg-white/10"}`}>
-                    {msg.role === "user" ? <User size={14} className="text-primary" /> : <Bot size={14} className="text-text-secondary" />}
+                <div key={index} className={`flex items-start gap-4 ${msg.role === "user" ? "flex-row-reverse" : ""}`}>
+                  <div className={`w-10 h-10 rounded-2xl flex items-center justify-center shrink-0 ${msg.role === "user" ? "bg-primary text-[#F9F6F0]" : "bg-white border border-glass-border text-primary shadow-sm"}`}>
+                    {msg.role === "user" ? <User size={18} /> : <Bot size={18} />}
                   </div>
                   <div className={`flex flex-col gap-1 max-w-[80%] ${msg.role === "user" ? "items-end" : "items-start"}`}>
-                    <div className={`px-4 py-2.5 rounded-2xl text-sm ${msg.role === "user" ? "bg-primary text-white" : "bg-white/5 border border-glass-border"}`}>
+                    <div className={`px-5 py-3.5 rounded-3xl text-sm leading-relaxed shadow-sm ${msg.role === "user" ? "bg-primary text-[#F9F6F0] rounded-tr-none" : "bg-white border border-glass-border rounded-tl-none"}`}>
                       <p className="whitespace-pre-wrap">{msg.content}</p>
                     </div>
                   </div>
@@ -179,27 +179,27 @@ const ChatWidget: React.FC = () => {
 
               {/* Typing Animation State */}
               {isTyping && (
-                <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-full flex items-center justify-center bg-white/10">
-                    <Bot size={14} className="text-text-secondary" />
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-2xl flex items-center justify-center bg-white border border-glass-border text-primary shadow-sm">
+                    <Bot size={18} />
                   </div>
-                  <div className="bg-white/5 border border-glass-border rounded-2xl px-4 py-2.5 max-w-[80%]">
-                    <p className="text-sm whitespace-pre-wrap">{displayText}</p>
+                  <div className="bg-white border border-glass-border rounded-3xl rounded-tl-none px-5 py-3.5 max-w-[80%] shadow-sm">
+                    <p className="text-sm leading-relaxed whitespace-pre-wrap">{displayText}</p>
                   </div>
                 </div>
               )}
 
               {/* Waiting Indicator */}
               {isLoading && (
-                <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-full flex items-center justify-center bg-white/10">
-                    <Bot size={14} className="text-text-secondary" />
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-2xl flex items-center justify-center bg-white border border-glass-border text-primary shadow-sm">
+                    <Bot size={18} />
                   </div>
-                  <div className="bg-white/5 border border-glass-border rounded-2xl px-4 py-3">
-                    <div className="flex gap-1.5">
-                      <motion.span animate={{ opacity: [0.3, 1, 0.3] }} transition={{ duration: 1, repeat: Infinity, delay: 0 }} className="w-2 h-2 rounded-full bg-text-muted" />
-                      <motion.span animate={{ opacity: [0.3, 1, 0.3] }} transition={{ duration: 1, repeat: Infinity, delay: 0.2 }} className="w-2 h-2 rounded-full bg-text-muted" />
-                      <motion.span animate={{ opacity: [0.3, 1, 0.3] }} transition={{ duration: 1, repeat: Infinity, delay: 0.4 }} className="w-2 h-2 rounded-full bg-text-muted" />
+                  <div className="bg-white border border-glass-border rounded-3xl rounded-tl-none px-5 py-4 shadow-sm">
+                    <div className="flex gap-2">
+                      <motion.span animate={{ opacity: [0.3, 1, 0.3] }} transition={{ duration: 1, repeat: Infinity, delay: 0 }} className="w-2 h-2 rounded-full bg-primary/40" />
+                      <motion.span animate={{ opacity: [0.3, 1, 0.3] }} transition={{ duration: 1, repeat: Infinity, delay: 0.2 }} className="w-2 h-2 rounded-full bg-primary/40" />
+                      <motion.span animate={{ opacity: [0.3, 1, 0.3] }} transition={{ duration: 1, repeat: Infinity, delay: 0.4 }} className="w-2 h-2 rounded-full bg-primary/40" />
                     </div>
                   </div>
                 </div>
@@ -210,12 +210,12 @@ const ChatWidget: React.FC = () => {
 
             {/* Quick Actions */}
             {showQuickActions && messages.length === 1 && (
-              <div className="px-4 pb-4 flex flex-wrap gap-2">
+              <div className="px-6 pb-6 flex flex-wrap gap-2 bg-white/30">
                 {QUICK_ACTIONS.map((action) => (
                   <button
                     key={action}
                     onClick={() => sendMessage(action)}
-                    className="px-3 py-1.5 text-xs font-medium rounded-full border border-glass-border bg-white/5 text-text-secondary hover:bg-white/10"
+                    className="px-4 py-2 text-xs font-medium rounded-full border border-glass-border bg-white text-text-secondary hover:border-primary/30 hover:text-primary shadow-sm transition-all duration-300"
                   >
                     {action}
                   </button>
@@ -223,18 +223,18 @@ const ChatWidget: React.FC = () => {
               </div>
             )}
 
-            <form onSubmit={handleSubmit} className="border-t border-glass-border p-3">
-              <div className="flex items-center gap-2 bg-white/5 border border-glass-border rounded-xl px-3 py-1.5">
+            <form onSubmit={handleSubmit} className="border-t border-glass-border p-6 bg-white/50 backdrop-blur-md">
+              <div className="flex items-center gap-3 bg-white border border-glass-border rounded-[24px] px-4 py-2 shadow-sm focus-within:shadow-xl focus-within:shadow-primary/5 transition-all duration-500">
                 <input
                   ref={inputRef}
                   type="text"
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
-                  placeholder="Ask Shikshak Sahayak..."
-                  className="flex-1 bg-transparent text-sm outline-none py-1.5"
+                  placeholder="Ask Sahayak..."
+                  className="flex-1 bg-transparent text-sm outline-none py-2 font-sans"
                 />
-                <button type="submit" disabled={!input.trim() || isLoading || isTyping} className="p-2 rounded-lg bg-primary text-white disabled:opacity-30">
-                  {isLoading ? <Loader2 size={16} className="animate-spin" /> : <Send size={16} />}
+                <button type="submit" disabled={!input.trim() || isLoading || isTyping} className="p-3 rounded-2xl bg-primary text-[#F9F6F0] disabled:opacity-30 transition-all duration-300 hover:scale-110 active:scale-95">
+                  {isLoading ? <Loader2 size={20} className="animate-spin" /> : <Send size={20} />}
                 </button>
               </div>
             </form>

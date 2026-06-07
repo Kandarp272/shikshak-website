@@ -3,33 +3,39 @@
 @tailwind utilities;
 
 :root {
-  --bg-base: #05070F;
-  --bg-surface: #0D1117;
-  --glass-bg: rgba(255, 255, 255, 0.04);
-  --glass-border: rgba(255, 255, 255, 0.08);
-  --glass-hover: rgba(255, 255, 255, 0.07);
-  --primary: #6366F1;
-  --primary-glow: rgba(99, 102, 241, 0.3);
-  --secondary: #22D3EE;
-  --accent: #A78BFA;
-  --success: #10B981;
-  --text-primary: #F1F5F9;
-  --text-secondary: #94A3B8;
-  --text-muted: #475569;
-  --gradient-mesh-1: #6366F1;
-  --gradient-mesh-2: #8B5CF6;
-  --gradient-mesh-3: #06B6D4;
+  --bg-base: #F9F6F0;
+  --bg-surface: #F2EDE4;
+  --glass-bg: rgba(255, 255, 255, 0.4);
+  --glass-border: rgba(45, 41, 38, 0.1);
+  --glass-hover: rgba(255, 255, 255, 0.6);
+  --primary: #4A6741;
+  --primary-glow: rgba(74, 103, 65, 0.2);
+  --primary-foreground: #F9F6F0;
+  --secondary: #E27D60;
+  --secondary-foreground: #F9F6F0;
+  --accent: #8E9775;
+  --success: #769164;
+  --text-primary: #2D2926;
+  --text-secondary: #6B6661;
+  --text-muted: #A8A29E;
+  --gradient-organic-1: #4A6741;
+  --gradient-organic-2: #8E9775;
+  --gradient-organic-3: #E27D60;
 }
 
 @layer base {
   body {
     @apply bg-background text-text-primary antialiased;
-    font-feature-settings: "ss01", "ss02", "cv01", "cv02";
+    font-feature-settings: "lnum", "pnum", "ss01";
   }
 
   ::selection {
-    background-color: rgba(99, 102, 241, 0.3);
+    background-color: var(--primary-glow);
     color: inherit;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-serif tracking-tight;
   }
 }
 
@@ -39,30 +45,34 @@
     border: 1px solid var(--glass-border);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border-radius: 16px;
+    border-radius: 24px;
     isolation: isolate;
   }
 
   .glass-card-hover {
-    @apply transition-all duration-300;
+    @apply transition-all duration-500 ease-out;
   }
 
   .glass-card-hover:hover {
-    transform: translateY(-4px);
-    border-color: rgba(99, 102, 241, 0.3);
-    box-shadow: 0 20px 60px rgba(99, 102, 241, 0.15);
+    transform: translateY(-8px) scale(1.01);
+    border-color: var(--primary-glow);
+    box-shadow: 0 32px 64px -16px var(--primary-glow);
     background: var(--glass-hover);
   }
 
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-secondary;
   }
+
+  .organic-blob {
+    @apply absolute rounded-full blur-[120px] opacity-20 animate-blob;
+  }
 }
 
 @keyframes blob-float {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(30px, -50px) scale(1.1); }
-  66% { transform: translate(-20px, 20px) scale(0.9); }
+  0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+  33% { transform: translate(4%, -8%) scale(1.1) rotate(2deg); }
+  66% { transform: translate(-3%, 4%) scale(0.95) rotate(-2deg); }
 }
 
 .animate-blob {

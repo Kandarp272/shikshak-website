@@ -1,20 +1,19 @@
 import type { Metadata } from "next";
-import { DM_Sans, Syne, JetBrains_Mono } from "next/font/google";
+import { Inter, Fraunces, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "react-hot-toast";
-import MeshBackground from "@/components/layout/MeshBackground";
 import ChatWidget from "@/components/chat/ChatWidget";
 
-const dmSans = DM_Sans({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-dm-sans",
+  variable: "--font-inter",
   display: "swap",
 });
 
-const syne = Syne({
+const fraunces = Fraunces({
   subsets: ["latin"],
-  variable: "--font-syne",
-  weight: ["700", "800"],
+  variable: "--font-fraunces",
+  weight: ["400", "500", "600", "700", "800"],
   display: "swap",
 });
 
@@ -42,20 +41,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark scroll-smooth">
+    <html lang="en" className="scroll-smooth">
       <body
-        className={`${dmSans.variable} ${syne.variable} ${jetbrainsMono.variable} font-sans bg-background text-text-primary antialiased`}
+        className={`${inter.variable} ${fraunces.variable} ${jetbrainsMono.variable} font-sans bg-background text-text-primary antialiased`}
       >
-        <MeshBackground />
+        <div className="fixed inset-0 pointer-events-none z-[9999] opacity-[0.03] mix-blend-multiply bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
         <div className="relative z-10">{children}</div>
         <ChatWidget />
         <Toaster
           position="bottom-right"
           toastOptions={{
             style: {
-              background: "#0D1117",
-              color: "#F1F5F9",
-              border: "1px solid rgba(255, 255, 255, 0.08)",
+              background: "#F9F6F0",
+              color: "#2D2926",
+              border: "1px solid rgba(45, 41, 38, 0.1)",
               backdropFilter: "blur(12px)",
             },
           }}

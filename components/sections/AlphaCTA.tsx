@@ -3,41 +3,47 @@
 import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import GlassCard from "@/components/ui/GlassCard";
 import Button from "@/components/ui/Button";
 
 const AlphaCTA: React.FC = () => {
   return (
-    <section className="py-24 relative overflow-hidden">
+    <section className="py-32 relative overflow-hidden bg-background">
       <div className="container mx-auto px-6">
         <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
+          initial={{ opacity: 0, scale: 0.98 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
+          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+          className="relative group"
         >
-          <GlassCard className="relative overflow-hidden p-12 md:p-20 text-center border-primary/20">
-            {/* Background Glow */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2/3 h-2/3 bg-primary/20 blur-[120px] -z-10" />
+          <div className="relative overflow-hidden p-16 md:p-24 text-center rounded-[60px] bg-primary shadow-2xl shadow-primary/20">
+            {/* Organic Background Texture */}
+            <div className="absolute inset-0 opacity-10 mix-blend-overlay pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+            <div className="absolute -top-24 -right-24 w-64 h-64 bg-white/10 rounded-full blur-3xl animate-blob" />
+            <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-secondary/20 rounded-full blur-3xl animate-blob animation-delay-2000" />
 
-            <div className="max-w-3xl mx-auto space-y-8">
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-syne font-extrabold text-text-primary">
-                We're looking for <span className="text-gradient">50 pilot schools</span> in Gujarat
+            <div className="relative z-10 max-w-4xl mx-auto space-y-10">
+              <h2 className="text-5xl md:text-7xl font-serif font-bold text-[#F9F6F0] leading-tight">
+                Seeking <span className="italic opacity-80">50 pilot schools</span> across Bharat
               </h2>
-              <p className="text-lg md:text-xl text-text-secondary leading-relaxed">
-                Free access during alpha. Your feedback shapes the product. Schools in Ahmedabad, Surat, Vadodara, Rajkot — priority.
+              <p className="text-xl md:text-2xl text-[#F9F6F0]/80 leading-relaxed font-sans max-w-3xl mx-auto">
+                Free access during our Alpha phase. Your feedback will shape the future of Indian education. Priority for schools in Gujarat.
               </p>
-              <div className="flex flex-col items-center gap-4">
+              <div className="flex flex-col items-center gap-6 pt-6">
                 <Link href="/waitlist" className="w-full sm:w-auto">
-                  <Button variant="primary" size="lg" className="w-full sm:w-auto px-12" glow>
+                  <Button variant="secondary" size="lg" className="w-full sm:w-auto px-16 bg-[#F9F6F0] text-primary hover:bg-[#F9F6F0]/90 shadow-2xl">
                     Apply for Free Pilot
                   </Button>
                 </Link>
-                <p className="text-sm text-text-muted italic">
-                  Alpha build — expect bugs. We're iterating weekly.
-                </p>
+                <div className="flex flex-col items-center gap-2">
+                  <p className="text-sm text-[#F9F6F0]/60 font-medium">
+                    Alpha build — We're iterating weekly with your feedback.
+                  </p>
+                  <div className="w-12 h-1 bg-[#F9F6F0]/20 rounded-full" />
+                </div>
               </div>
             </div>
-          </GlassCard>
+          </div>
         </motion.div>
       </div>
     </section>

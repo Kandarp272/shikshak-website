@@ -70,7 +70,7 @@ export async function POST(req: NextRequest) {
       subject: "You're on the Shikshak Sahayak waitlist 🎉",
       html: `
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e2e8f0; border-radius: 12px;">
-          <h1 style="color: #6366f1;">Welcome to the future of Bharat's classrooms!</h1>
+          <h1 style="color: #4A6741;">Welcome to the future of Bharat's classrooms!</h1>
           <p>Hi ${validatedData.full_name},</p>
           <p>Thanks for joining the Shikshak Sahayak waitlist. We've received your application for <strong>${validatedData.school_name}</strong> in ${validatedData.city}.</p>
           <p>We are currently in <strong>Alpha stage</strong> and inviting 50 pilot schools to co-develop with us. As an early partner, your feedback will directly shape the product.</p>

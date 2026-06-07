@@ -12,15 +12,15 @@ export default function WaitlistPage() {
       <Navbar />
       
       <div className="container mx-auto px-6 pt-32 pb-20">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-4xl mx-auto mb-20">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-syne font-extrabold mb-6"
+            className="text-6xl md:text-7xl font-serif font-bold mb-8 leading-tight text-text-primary"
           >
-            Join the <span className="text-gradient">Waitlist</span>
+            Join the <span className="italic text-primary text-gradient bg-none">Waitlist</span>
           </motion.h1>
-          <p className="text-lg text-text-secondary leading-relaxed">
+          <p className="text-xl text-text-secondary leading-relaxed max-w-2xl mx-auto font-sans">
             We are currently in alpha and inviting 50 pilot schools in Gujarat. Register your interest below to be the first to transform your classrooms.
           </p>
         </div>
